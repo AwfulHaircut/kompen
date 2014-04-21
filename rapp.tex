@@ -1,8 +1,8 @@
 \documentclass[a4paper]{article}
-\usepackage{style}
+\usepackage{graphicx}
+\usepackage{epstopdf}
 \usepackage{mcode}
-
-\setlength{\droptitle}{15em}
+\usepackage{float}
 \title{Laboration i Komponentfysik\\ Optoelektronik}
 
 \author{Alexander Najafi \\ Linus Hellman}
@@ -29,6 +29,22 @@ Denna lab är utformad för att ge en större förståelse för halvledarkompone
 Diodens uppbyggnad kommer även studeras då en egen diod kommer tillverkas och analyseras. Denna kommer konstrueras med hjälp av en platta av Galliumfosfid som kommer legeras med dels tenn dels zinklegerat guld. Detta kommer att n-,p-dopa GaP-biten tillräckligt för att den ska få en diods egenskaper. 
 
 Vidare kommer en analys göras på en solcell för att undersöka vid vilken belastningsresistans denna uppnår sin maximala effekt. Belysning av en diod kommer att leda till en ström genom dioden. Men om ingen belastningsresistans finns kommer det inte ligga någon spänning över dioden alltså ingen effekt. Om det istället ligger oändligt mycet belastning över dioden kommer det inte att gå någon ström, alltså ingen effekt. Det som måste göras är att hitta den punkt i ström/spänningkurvan som ger den största arean ($U*I=effekten$).
-
-
+\newpage
+\section{Resultat}
+\subsection{Dioden}
+Dioden som tillverkades hade en framspänning på 0.6V och en backspänning på 3.4V. I figur \ref{diodiv} synes I-V-kurvan som togs fram på labben med oscilloskopet.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=.4]{diod.jpg}
+	\caption{I-V-kurva som syns på oscilloskopet}
+	\label{diodiv}
+\end{figure}
+\subsection{Solcellen}
+Följande I-V-kurva togs fram för solcellen. För matlab-kod och data se bilaga.
+\includegraphics[scale=.7]{solcell.eps}
+\newpage
+\appendix
+\section{Matlabkod}
+\subsection{Solcellen}
+\lstinputlisting{solcell.m}
 \end{document}
