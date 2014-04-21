@@ -46,6 +46,15 @@ Solcellen kopplades in till en ampermeter och en voltmeter så att spänningen �
 
 \newpage
 \section{Resultat}
+\subsection{Emission och absorption av lysdioder}
+Undersökningarna av emission och absorption av lysdioden samanfattas av figur \ref{emabs}. Se bilaga för matlabkod.
+\begin{figure}[H]
+        \centering
+        \includegraphics[scale=.4]{emabs.eps}
+        \caption{Den gröna grafen visar emissionen och den röda visar absorptionen}
+        \label{emabs}
+\end{figure}
+
 \subsection{Dioden}
 Dioden som tillverkades hade en framspänning på 0.6V och en backspänning på 3.4V. I figur \ref{diodiv} synes I-V-kurvan som togs fram på labben med oscilloskopet.
 \begin{figure}[H]
@@ -62,9 +71,30 @@ I-V-kurvan i figur \ref{solcelliv} togs fram för solcellen. För matlab-kod och
 	\caption{I-V-kurva för solcellen}
 	\label{solcelliv}
 \end{figure}
+
+\section{Analys och bearbetning av experimentell data}
+\subsection{Emission och absorption av lysdioder}
+Som synes i figur \ref{emabs} är absorptionen som högst kring en viss våglängd (kring 575nm) och väldigt nära 0nm för övrigt. Denna våglängd beror på bandgapet för dioden. Förhållandet mellan bandgapet och våglängden är $E = \frac{hc}{\lambda}$
+
+En diod som absorberar ljus kommer absorbera alla fotoner med en energi större än bandgapet. Detta syns tydligt i figur \ref{emabs} på den röda kurvan. En foton med kortare våglängd har en större energi. Det syns en mycket tydlig brytpunkt där energin i fotonerna inte längre räcker till där intensiteten i absorptionen blir mycket liten och går mot 0. 
+
+\subsection{Dioden}
+Den egentillverkade dioden lyste med en våglängd kring 600nm vilket upskattades genom att använda en färgkarta och se vilken färg den lyste med. Detta kan jämföras med den teoretiskt korrekta våglängden som fås ur att veta bandgapet för galiumfosfid som är $2,26eV = 3,62*10^-19J$. Då vi vet att $E = \frac{hc}{\lambda}$ måste $\lambda = \frac{hc}{E}$ vilket ger den teoretiska våglängden
+
+\begin{equation}
+	\lambda = \frac{hc}{E} = \frac{6.626*10^{-34} * 3.0*10^8}{3,62*10^-19} = 549,11 nm.
+\end{equation}
+
+vilket är nära det gissade värdet. Resultatet för framspänningen och backspänningen på den tillverkade dioden stämmer också bra överens med teorin.
+
+\subsection{Solcellen}
+
+
 \newpage
 \appendix
 \section{Matlabkod}
+\subsection{Emission och absorrption av dioder}
+\lstinputlisting{absem.m}
 \subsection{Solcellen}
 \lstinputlisting{solcell.m}
 
