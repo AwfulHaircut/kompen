@@ -6,4 +6,4 @@ I = [30e-9 29.8e-9 30.1e-9 31.1e-9 31.9e-9 32.7e-9 33.8e-9 35.9e-9 43.3e-9 87.9e
 plot(U, I);
 xlabel('Voltage U/V');
 ylabel('Current I/A');
-title('PN junction');
+title('PN junction UI');
