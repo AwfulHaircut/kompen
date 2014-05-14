@@ -4,7 +4,7 @@
 \usepackage{mcode}
 \usepackage{style}
 \usepackage{float}
-\title{Laboration i Komponentfysik\\ Den bipolära transistorn}
+\title{Laboration - Solid state physics\\ The bipolar junction transistor}
 
 \author{Alexander Najafi \\ Linus Hellman}
 
@@ -45,7 +45,7 @@ The following graph was plotted for the PN junction U-I characteristics. See the
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{pn_ui.eps}
-	\caption{U-I characterstics for the PN junction.}	
+	\caption{U-I characterstics for the PN junction.}
 	\label{pn_ui}
 \end{figure}
 
@@ -69,10 +69,20 @@ The following graphs were plotted for the current in the npn transistor. The ear
 
 \newpage
 \section{Analysis of the result}
+\subsection{PN junction UI}
+In figure \ref{pn_ui} the current to voltage ratio is plotted from the measured values. Since this is a PN junction it is expected to behave like a normal diode. In the graph it is clear that the current through the pn junction is zero until it the voltage over the junction reches about 0.7V. This value of the forward voltage is expected and is about the same for all pn junctions.
+
+The forward voltage exists since...
+
+\subsection{PN junction capacitance}
+
+
 \subsection{NPN transistor}
-As you can see to the left in figure \ref{npn} an increasing voltage from zero to about 0.25 volts results in a substantially increase in the collector current. The current does'nt increase to infinity and beyond though. The steep increase stops since there is no more electrons that can diffuse from the emittor through the base to the collector.
+As you can see to the left in figure \ref{npn} an increasing voltage from zero to about 0.25 volts results in a substantially increase in the collector current. The current does'nt increase to infinity and beyond though. The current that flows through the transistor is dependent on the current that the powersource can deliver. The steep increase in current stops since there are no more electrons that can diffuse from the emittor through the base to the collector in the transistor.
 
 To calculate the early voltage a linear function was aproximated to the eleven largest values that were measured. To find the aproximation function $p(U) = ax + b$ polyfit was used in matlab (see appendix). Using the function and calculating $p(U) = 0 => x = \frac{b}{a}$ the earlyvoltage was found to be $\frac{139,9}{4,1} \approx 34V$.
+
+The right graph in figure \ref{npn} shows the current that flows from the base to the emittor. Since this is a pn-junction it was expected that the current to voltage graph would look like a diodes graph, which it does. The forward voltage for the pn-junction is shown in the graph to be about 0.6-0.7 V which is normal vlue expected for a diode.
 
 \newpage
 \appendix
