@@ -21,7 +21,23 @@
 \section{Introduction}
 The purpose of this lab is to gain a better understanding of the bipolar transistor characteristics. By altering the different potentials over the three sections of the transistor we hope to establish a connection between them and in that way learn to understand it. The lab mainly consists in three parts, measuring the capacitor in a pn-junction, measuring the current through a pn-junction and measuring the currents through a bipolar npn-transistor.
 
-In the first part we are studying the capacitor in the pn-junction. The total capacitance that is found in a pn-junction actually consists of capacitors from two different origins, one is called junction capacity and the other one is called diffusion capacity. The junction capacity exist because of that the depletion area has a very high resistance so that when the n and p sections has voltage difference the junction can be seen as a capacitor. The second capacitor origins in the neutral part of the p-doped section. When the pn-junction is forward biased the the 
+In the first part we are studying the capacitor in the pn-junction. The total capacitance that is found in a pn-junction actually consists of capacitors from two different origins, one is called junction capacity and the other one is called diffusion capacity. The junction capacity exist because of that the depletion area has a very high resistance so that when the n and p sections has voltage difference the junction can be seen as a capacitor. The second capacitance origins in the neutral part of the p-doped section. When the pn-junction is forward biased there is an increase of minority charge carriers and the amount of these are directly proportionate to the forward biased charge. Since the definition of capacitance is $C=\frac{Q}{U}$ and since that is exactly what is occurring here it's perceived as a capacitance. Expressions for these capacitances are as follows.
+
+\begin{equation}
+C_j=\sqrt{\frac{A^2{\cdot}\epsilon_r{\cdot}\epsilon_0{\cdot}e{\cdot}N_A}{2(U_{bi}-U_A)}}
+\end{equation}
+\begin{equation}
+C_{diff}=\frac{e{\cdot}n_{p_0}{\cdot}A{\cdot}W_p}{2{\cdot}U_t}e^{(\frac{U_a}{U_t})}
+\end{equation}
+
+The total capacitance for the pn-junction is simply the sum of these two capacitances. The characteristics of these can be seen in the picture below.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{capp.png}
+\caption{The two capacitances that can be seen in a pn-junction}
+\label{capp}
+\end{figure}
 
 \section{Result}
 \subsection{PN junction UI}
