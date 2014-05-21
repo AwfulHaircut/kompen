@@ -39,6 +39,36 @@ The total capacitance for the pn-junction is simply the sum of these two capacit
 \label{capp}
 \end{figure}
 
+\section{Methods}
+\subsection{PN junction UI}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]{ui_koppling.png}
+	\caption{Circuit used for UI examination.}
+	\label{ui_koppling}
+\end{figure}
+The circuit in figure \ref{ui_koppling} was used to measure the UI characteristics of the PN junction. The voltage was measured over a single junction in the transistor using a voltage meter and the current through it was measured on the base in the transistor as you can see in the figure.
+
+The potentiometer shown in figure \ref{ui_koppling} was used to controll the voltage over the junction. By sweeping the voltage from 0 to 750mV and read off the values on the ampere meter and the voltage meter a graph could be ploted.
+
+\subsection{PN junction capacitance}
+To measure the capacitance in a PN junction a capacitance meter was used. By connecting a voltage source to the meter, the voltage over the capacitance could be controlled. By sweeping the voltage from 0 to 1 volts and reading values of the meter every 0.2 volts, the charateristics of the capacitance in forward voltage mode could be ploted. To meassure the characteristics in the reverse voltage mode, the voltage source was switched turned around so the voltage over the pn junction was reversed. In the reverse mode, the voltage was swept from 0 to -2 volts and values where read off every 0.2V. The result was ploted using matlab.
+
+\subsection{NPN transistor}
+The examination of the NPN transistor was a little bit more challenging than for the PN junction. The following circuit was used.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]{npn_circuit.png}
+	\caption{Circuit used for examination of the NPN transistor}
+	\label{npn_koppling}
+\end{figure}
+To get both graphs showin the result, two sweeps had to be done. First a sweep where the base voltage was kept constant at 0,6V (using the potentiometers) and the collector voltage was swept from 0V and 0.25V, the values was read off every 25mV.
+
+For the second sweep the collector voltage was keept constant at a value of 0.5V and the base voltage was swept between 0V and 0.7. For this examination the values where read off every 50mV.
+
+The result from the sweeps were ploted using matlab. Both the current to $U_{CE}$ and current to $U_{BE}$ were ploted.
+
 \section{Result}
 \subsection{PN junction UI}
 The following graph was plotted for the PN junction U-I characteristics. See the measured data in the appendix together with the matlab-code. 
@@ -57,6 +87,14 @@ The following graph was plotted using the measured data in the appendix for the 
 	\caption{C-U characterstics for the PN junction.}	
 	\label{pn_cap}
 \end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{built_in_v.eps}
+	\caption{Plot to get the built in voltage. The red line is a linear aproximation of the blue.}
+	\label{pn_cap_built_in_v}
+\end{figure}
+
+The built in voltage was calculated to $0,9V$.
 
 \subsection{NPN transistor}
 The following graphs were plotted for the current in the npn transistor. The early voltage was calculated to 34V using matlab. See the appendix for values and matlab-code.
@@ -72,10 +110,12 @@ The following graphs were plotted for the current in the npn transistor. The ear
 \subsection{PN junction UI}
 In figure \ref{pn_ui} the current to voltage ratio is plotted from the measured values. Since this is a PN junction it is expected to behave like a normal diode. In the graph it is clear that the current through the pn junction is zero until it the voltage over the junction reches about 0.7V. This value of the forward voltage is expected and is about the same for all pn junctions.
 
-The forward voltage exists since...
-
 \subsection{PN junction capacitance}
+The capacitance in a transistor consists of both a junction capacitance and a difusion capacitance. If you apply a negative voltage, only the junction capacitance will be seen. This junction capacitance is very small for very negative voltages but grows bigger for positive values, see figure \ref{capp}. This can be observed in the result in figure \ref{pn_cap}. Here we can see a very small capacitance for negative voltages.
 
+For positive voltages we have both the junction capacitance and the diferential capacitance. The diferential capacitance is very large and grows quickly for positive voltages. This can clearly be observed in figure \ref{pn_cap} as it grows very much and fast for positive values.
+
+To retrive the built in voltage for the PN-junction figure \ref{pn_cap_built_in_v} was ploted. In the graph, the red line is a linear aproximation to the meassured data. The built in voltage can be found where this line crosses the x-axis wich was retrieved by using the approximated polynomial expression $u$. $ u = ax + b = 0 \rightarrow x = -\frac{b}{a} = \frac{9,0128}{9,9970} = 0,9V$.
 
 \subsection{NPN transistor}
 As you can see to the left in figure \ref{npn} an increasing voltage from zero to about 0.25 volts results in a substantially increase in the collector current. The current does'nt increase to infinity and beyond though. The current that flows through the transistor is dependent on the current that the powersource can deliver. The steep increase in current stops since there are no more electrons that can diffuse from the emittor through the base to the collector in the transistor.
@@ -94,4 +134,9 @@ The right graph in figure \ref{npn} shows the current that flows from the base t
 \subsection{NPN current}
 \lstinputlisting{npn.m}
 
+\newpage
+\section{Reference}
+Komponentfysik  7 upplagan 2011 - Anders Gustafsson
+
+Komponentfysik - Den bipolära transistorn - Martin Berg och Elvedin Elvedin Memišević
 \end{document}
