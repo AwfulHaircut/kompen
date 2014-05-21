@@ -39,13 +39,24 @@ The total capacitance for the pn-junction is simply the sum of these two capacit
 \label{capp}
 \end{figure}
 
+In the next part the current through a pn-junction where to be analysed. The current characteristics for a pn-junction can be explained by looking at it's construction. The junction basically consists of two blocks one that is doped with donors which is called n-doped and one that is doped with acceptors that is called p-doped. The n-doped block has an excess of electrons and the p-doped has an excess holes. When these two blocks is put together the electron and the holes starts to recombine this creates the highly resistive depletion area between the two blocks. The depletion area may be altered with an outside voltage, if the junction where to be forward biased then the depletion area will shrink leading to a smaller resistance thus a bigger current. If the junction where to be reversed biased then it will lead to a bigger resistance and a smaller current. In a way this can be seen as a variable resistance that depends on the voltage over the junction. This nexus is pictured below where a) is without a outside voltage, b) is reversed biased and c) is forward biased.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{diodeeffect.png}
+\caption{The diode effect}
+\label{diode}
+\end{figure}
+
+The final part in this lab consisted in measuring the characteristics of a BJT (bipolar junction transistor). As in the second part it's easier to explain how the transistor work by looking at how it's constructed. The three main sections of the transistor is the base, the collector and the emitter. To get the transistor to it's active mod (the most commonly used mod) the base-collector is put in a reversed biased state creating an electric field in the depletion area. The base-emitter junction is then put in a forward biased state. This causes electrons from the base-emitter junction to diffuse into the electric field of the base-collector junction and is accelerated towards the collector. This can be seen as a current from the collector to the emitter and is called $I_c$. The size of this current is controlled by the base-emitter voltage. An ideal BJT would climb up to it's maximum $I_c$ for an arbitrary value of the base-emitter voltage and then stay constantly on this level disregarding the change of the collector-emitter voltage. But in a real BJT there is a parasite resistance between the collector and the emitter causing the collector-emitter current to increase slightly when the collector-emitter voltage is increased. This is called the Early effect.
+
 \section{Result}
-\subsection{PN junction UI}
-The following graph was plotted for the PN junction U-I characteristics. See the measured data in the appendix together with the matlab-code. 
+\subsection{Pn-junction UI}
+The following graph was plotted for the pn-junction U-I characteristics. See the measured data in the appendix together with the matlab-code. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{pn_ui.eps}
-	\caption{U-I characterstics for the PN junction.}
+	\caption{U-I characteristics for the pn-junction.}
 	\label{pn_ui}
 \end{figure}
 
@@ -54,7 +65,7 @@ The following graph was plotted using the measured data in the appendix for the 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{pn_cap.eps}
-	\caption{C-U characterstics for the PN junction.}	
+	\caption{C-U characteristics for the pn-junction.}	
 	\label{pn_cap}
 \end{figure}
 
@@ -63,14 +74,14 @@ The following graphs were plotted for the current in the npn transistor. The ear
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.85\textwidth]{npn.eps}
-	\caption{Voltage to current characteristics for the NPN transistor. The collector current to the left and the base-emittor current to the right.}	
+	\caption{Voltage to current characteristics for the NPN transistor. The collector current to the left and the base-emitter current to the right.}	
 	\label{npn}
 \end{figure}
 
 \newpage
 \section{Analysis of the result}
 \subsection{PN junction UI}
-In figure \ref{pn_ui} the current to voltage ratio is plotted from the measured values. Since this is a PN junction it is expected to behave like a normal diode. In the graph it is clear that the current through the pn junction is zero until it the voltage over the junction reches about 0.7V. This value of the forward voltage is expected and is about the same for all pn junctions.
+In figure \ref{pn_ui} the current to voltage ratio is plotted from the measured values. Since this is a pn-junction it is expected to behave like a normal diode. In the graph it is clear that the current through the pn-junction is zero until it the voltage over the junction reaches about 0.7V. This value of the forward voltage is expected and is about the same for all pn-junctions.
 
 The forward voltage exists since...
 
@@ -78,11 +89,11 @@ The forward voltage exists since...
 
 
 \subsection{NPN transistor}
-As you can see to the left in figure \ref{npn} an increasing voltage from zero to about 0.25 volts results in a substantially increase in the collector current. The current does'nt increase to infinity and beyond though. The current that flows through the transistor is dependent on the current that the powersource can deliver. The steep increase in current stops since there are no more electrons that can diffuse from the emittor through the base to the collector in the transistor.
+As you can see to the left in figure \ref{npn} an increasing voltage from zero to about 0.25 volts results in a substantially increase in the collector current. The current doesn't increase to infinity and beyond though. The current that flows through the transistor is dependent on the current that the power source can deliver. The steep increase in current stops since there are no more electrons that can diffuse from the emitter through the base to the collector in the transistor.
 
-To calculate the early voltage a linear function was aproximated to the eleven largest values that were measured. To find the aproximation function $p(U) = ax + b$ polyfit was used in matlab (see appendix). Using the function and calculating $p(U) = 0 => x = \frac{b}{a}$ the earlyvoltage was found to be $\frac{139,9}{4,1} \approx 34V$.
+To calculate the early voltage a linear function was approximated to the eleven largest values that were measured. To find the approximation function $p(U) = ax + b$ polyfit was used in matlab (see appendix). Using the function and calculating $p(U) = 0 => x = \frac{b}{a}$ the early voltage was found to be $\frac{139,9}{4,1} \approx 34V$.
 
-The right graph in figure \ref{npn} shows the current that flows from the base to the emittor. Since this is a pn-junction it was expected that the current to voltage graph would look like a diodes graph, which it does. The forward voltage for the pn-junction is shown in the graph to be about 0.6-0.7 V which is normal vlue expected for a diode.
+The right graph in figure \ref{npn} shows the current that flows from the base to the emitter. Since this is a pn-junction it was expected that the current to voltage graph would look like a diodes graph, which it does. The forward voltage for the pn-junction is shown in the graph to be about 0.6-0.7 V which is normal value expected for a diode.
 
 \newpage
 \appendix
