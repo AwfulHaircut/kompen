@@ -62,6 +62,8 @@ The circuit in figure \ref{ui_koppling} was used to measure the UI characteristi
 
 The potentiometer shown in figure \ref{ui_koppling} was used to control the voltage over the junction. By sweeping the voltage from 0 to 750mV and read off the values on the ampere meter and the voltage meter a graph could be plotted.
 
+To calculate the ideality factor the $I/U_a$ curve where simply plotted with a logarithmic scale on the $I$. The ideality factor can then be found by using a linear regression and obtain the slope coefficient for the linear curve. 
+
 \subsection{PN junction capacitance}
 To measure the capacitance in a PN junction a capacitance meter was used. By connecting a voltage source to the meter, the voltage over the capacitance could be controlled. By sweeping the voltage from 0 to 1 volts and reading values of the meter every 0.2 volts, the characteristics of the capacitance in forward voltage mode could be plotted. To measure the characteristics in the reverse voltage mode, the voltage source was turned around so the voltage over the pn junction was reversed. In the reverse mode, the voltage was swept from 0 to -2 volts and values where read off every 0.2V. The result was plotted using matlab.
 
@@ -80,15 +82,19 @@ For the second sweep the collector voltage was kept constant at a value of 0.5V 
 
 The result from the sweeps were plotted using matlab. Both the current to $U_{CE}$ and current to $U_{BE}$ were plotted.
 
+To calculate the ideality factor the method used in section 2.1 were once again used. Tough this time there is two currents to examine.
+
 \section{Result}
 \subsection{Pn-junction UI}
-The following graph was plotted for the pn-junction U-I characteristics. See the measured data in the appendix together with the matlab-code. 
+The following graph was plotted for the pn-junction U-I characteristics. See the measured data in the appendix together with the matlab-code.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{pn_ui.eps}
 	\caption{U-I characteristics for the pn-junction.}
 	\label{pn_ui}
 \end{figure}
+
+The ideality factor was approximated to 0.8218.
 
 \subsection{PN junction capacitance}
 The following graph was plotted using the measured data in the appendix for the capacitance in the PN junction. See appendix for values and matlab-code. 
@@ -111,15 +117,19 @@ The built in voltage was calculated to $0,9V$.
 The following graphs were plotted for the current in the npn transistor. The early voltage was calculated to 34V using matlab. See the appendix for values and matlab-code.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.85\textwidth]{npn.eps}
-	\caption{Voltage to current characteristics for the NPN transistor. The collector current to the left and the base-emitter current to the right.}	
+	\includegraphics[width=0.85\textwidth]{npn_n.eps}
+	\caption{Voltage to current characteristics for the NPN transistor. The collector current to the left and the base-emitter current to the right.}
 	\label{npn}
 \end{figure}
+
+The ideality factor was approximated to 0.8841 for $I_C$ and 0.9655 for $I_B$ 
 
 \newpage
 \section{Analysis of the result}
 \subsection{PN junction UI}
-In figure \ref{pn_ui} the current to voltage ratio is plotted from the measured values. Since this is a pn-junction it is expected to behave like a normal diode. In the graph it is clear that the current through the pn-junction is zero until it the voltage over the junction reaches about 0.5V. This value of the forward voltage is expected and is about the same for all pn-junctions.
+In figure \ref{pn_ui} the current to voltage ratio is plotted from the measured values. Since this is a pn-junction it is expected to behave like a normal diode. In the graph it is clear that the current through the pn-junction is zero until it the voltage over the junction reaches about 0.5V. This value of the forward voltage is expected and is about the same for all pn-junctions. 
+
+The ideality factor is the m in the diode equation. Its value tells us how fast the current changes with an externally applied voltage. If the current only consists of a diffusion current the ideality factor equals 1. If you apply a very high voltage the ideality factor equals 2. This means that the current grows faster with higher externally applied voltage. In a non ideal diode the idelity factor usually have a value between 1 and 2.
 
 \subsection{PN junction capacitance}
 The capacitance in a transistor consists of both a junction capacitance and a diffusion capacitance. If you apply a negative voltage, only the junction capacitance will be seen. This junction capacitance is very small for very negative voltages but grows bigger for positive values, see figure \ref{capp}. This can be observed in the result in figure \ref{pn_cap}. Here we can see a very small capacitance for negative voltages.
@@ -134,6 +144,8 @@ As you can see to the left in figure \ref{npn} an increasing voltage from zero t
 To calculate the early voltage a linear function was approximated to the eleven largest values that were measured. To find the approximation function $p(U) = ax + b$ polyfit was used in matlab (see appendix). Using the function and calculating $p(U) = 0 => x = \frac{b}{a}$ the early voltage was found to be $\frac{139,9}{4,1} \approx 34V$.
 
 The right graph in figure \ref{npn} shows the current that flows from the base to the emitter. Since this is a pn-junction it was expected that the current to voltage graph would look like a diodes graph, which it does. The forward voltage for the pn-junction is shown in the graph to be about 0.6-0.7 V which is normal value expected for a diode.
+
+An explanation of the ideality factor can be found in section 3.1.
 
 \newpage
 \appendix
