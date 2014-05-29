@@ -7,3 +7,6 @@ plot(U, I);
 xlabel('Voltage U/V');
 ylabel('Current I/A');
 title('PN junction UI');
+
+pol = polyfit(U(find(I > 87.9e-9)), log(I(find(I > 87.9e-9))), 1) * 0.0259;
+m = pol(1)

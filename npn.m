@@ -37,12 +37,15 @@ title('Base-emittor current')
 
 % Idealty factor
 Ic2 = [4e-6 4e-6 4e-6 4e-6 4e-6 4e-6 4e-6 4e-6 4e-6 4e-6 7e-6 24e-6 161e-6 961e-6 5625e-6];
+pol = polyfit(Ub(find(Ub > 0.45)), log(Ic2(find(Ub > 0.45))), 1) * 0.0259;
+mc = pol(1)
+pol = polyfit(Ub(find(Ub > 0.45)), log(Ib(find(Ub > 0.45))), 1) * 0.0259;
+mb = pol(1)
+
 subplot(2,2,4);
-plot(Ub, log(Ic2))
+plot(Ub, log(Ic2));
 hold on;
-xhr = [0 .7];
-yhr = [log(7e-6) log(7e-6)]
-plot(xhr, yhr, 'k-')
-xlabel('Current log(Ic) - A');
-ylabel('Voltage Ub - V');
-title('Ideality factor');
+plot(Ub, log(Ib), 'r');
+xlabel('Voltage - V');
+ylabel('Current - log(I)');
+title('Ideality factor')
