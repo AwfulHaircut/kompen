@@ -12,7 +12,7 @@ p(2)
 p(1)
 p(2) / p(1); % Prints the early voltage.
 
-subplot(2,2,1)
+subplot(3,2,1)
 plot(Uce, Ic);
 hold on;
 plot(Uce, polyval(p, Uce), 'r');
@@ -20,7 +20,7 @@ xlabel('Voltage Uce - V');
 ylabel('Current Ic - A');
 
 Ib1 = [53.68 25.57 11.99 5.49 2.74 1.68 1.24 1.08 1.02 0.99 0.98 0.98 0.98 0.98 0.98 0.98 0.98 0.98] * 1e-6;
-subplot(2,2,2);
+subplot(3,2,2);
 plot(Uce, Ib1);
 xlabel('Voltage Uce - V');
 ylabel('Current Ib - A');
@@ -29,7 +29,7 @@ title('Colector current');
 % With Uc = 0.5
 Ub = [0 0.05 0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.55 0.6 0.65 0.7 ];
 Ib = [0 0 0 0 0 0 0 0 0 0 0.02 0.16 1.03 6.19 35.86].*1e-6;
-subplot(2,2,3);
+subplot(3,2,3);
 plot(Ub, Ib)
 xlabel('Voltage Ub - V');
 ylabel('Current Ib - A');
@@ -42,10 +42,25 @@ mc = pol(1)
 pol = polyfit(Ub(find(Ub > 0.45)), log(Ib(find(Ub > 0.45))), 1) * 0.0259;
 mb = pol(1)
 
-subplot(2,2,4);
+subplot(3,2,4);
 plot(Ub, log(Ic2));
 hold on;
 plot(Ub, log(Ib), 'r');
 xlabel('Voltage - V');
 ylabel('Current - log(I)');
 title('Ideality factor')
+
+% Current gain
+subplot(3,2,5)
+beta = Ic ./ Ib1;
+plot(Uce, beta)
+xlabel('Gain');
+ylabel('Voltage - U_{CE}');
+title('Gain')
+
+subplot(3,2,6)
+beta2 = Ic2./Ib;
+plot(Ub, beta2)
+xlabel('Gain');
+ylabel('Voltage - U_{BE}');
+title('Gain')
